@@ -94,6 +94,10 @@ HOST=0.0.0.0 PORT=3000 API_TARGET=http://localhost:8080 npm run dev
 - 用户名: `test`
 - 密码: `test123`
 
+### 5. 测试截图
+
+![](images/微信图片_20260503235544_2671_390.png)
+![](images/微信图片_20260504001648_23_2.jpg)
 ## API 接口
 
 | 接口 | 方法 | 认证 | 用途 |
