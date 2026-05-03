@@ -100,5 +100,5 @@ app_client/src/
 ### 消息流程
 
 1. 用户登录后发送消息 → `/api/messages/submit`
-2. 客户端每秒轮询 `/api/messages/response/{id}` 获取 AI 响应
+2. 客户端每 5 秒轮询 `/api/messages/response/{id}` 获取 AI 响应
 3. 响应到达后显示在聊天界面
