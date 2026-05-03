@@ -5,10 +5,12 @@
 ```
 fly_cat/
 ├── __init__.py   # 频道主实现（含 TokenManager）
-└── config.py     # 配置类
+└── config.py     # FlyCatConfig 配置类
 ```
 
 ## 配置方式
+
+### 方式一：QwenPaw 配置文件
 
 在 `~/.qwenpaw/config.json` 中配置 `channels.fly_cat`：
 
@@ -30,6 +32,33 @@ fly_cat/
     }
   }
 }
+```
+
+### 方式二：代码配置（config.py）
+
+编辑 `fly_cat/config.py` 中的 `FlyCatConfig` 类：
+
+```python
+class FlyCatConfig(BaseModel):
+    enabled: bool = True
+
+    # 服务器配置
+    base_url: str = "http://your-app-server"
+    poll_path: str = "/api/messages/poll"
+    send_path: str = "/api/messages/send"
+
+    # 认证配置
+    login_path: str = "/api/auth/login"
+    refresh_path: str = "/api/auth/refresh"
+    client_id: str = "your-client-id"
+    client_secret: str = "your-client-secret"
+
+    # 兜底登录配置
+    username: str = "your-username"
+    password: str = "your-password"
+
+    # 轮询配置
+    poll_interval: float = 3.0
 ```
 
 ## 配置项说明
