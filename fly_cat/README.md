@@ -8,9 +8,27 @@ fly_cat/
 └── config.py     # FlyCatConfig 配置类
 ```
 
+## 部署步骤
+
+### 1. 复制代码到 QwenPaw 自定义频道目录
+
+```bash
+cp -r fly_cat ~/.qwenpaw/custom_channels/
+```
+
+### 2. 配置 QwenPaw
+
+在 `~/.qwenpaw/config.json` 中添加 `channels.fly_cat` 配置（见上方配置方式）
+
+### 3. 重启 QwenPaw
+
+```bash
+qwenpaw app
+```
+
 ## 配置方式
 
-### 方式一：QwenPaw 配置文件
+### 方式一：QwenPaw 配置文件（推荐）
 
 在 `~/.qwenpaw/config.json` 中配置 `channels.fly_cat`：
 
@@ -34,30 +52,18 @@ fly_cat/
 }
 ```
 
-### 方式二：代码配置（config.py）
+### 方式二：代码配置
 
-编辑 `fly_cat/config.py` 中的 `FlyCatConfig` 类：
+编辑 `fly_cat/config.py` 中的默认值：
 
 ```python
 class FlyCatConfig(BaseModel):
     enabled: bool = True
-
-    # 服务器配置
     base_url: str = "http://your-app-server"
-    poll_path: str = "/api/messages/poll"
-    send_path: str = "/api/messages/send"
-
-    # 认证配置
-    login_path: str = "/api/auth/login"
-    refresh_path: str = "/api/auth/refresh"
     client_id: str = "your-client-id"
     client_secret: str = "your-client-secret"
-
-    # 兜底登录配置
     username: str = "your-username"
     password: str = "your-password"
-
-    # 轮询配置
     poll_interval: float = 3.0
 ```
 
